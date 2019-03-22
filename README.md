@@ -11,7 +11,7 @@ LockInspectorはInspectorビューを複製してLockするエディタ拡張で
 
 ## Demo
 
-![Demo1](https://github.com/tomori-hikage/UnityChanToonShaderVer2_EmissiveScroll/blob/readme_images/Images/gif1.gif)
+![Demo1](https://github.com/tomori-hikage/LockInspector/blob/readme_images/Images/gif1.gif)
 
 ## Install
 
