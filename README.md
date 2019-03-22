@@ -7,7 +7,7 @@
 
 ## Description
 
-LockInspectorはInspectorビューを複製してLockするエディタ拡張です
+LockInspectorはInspectorビューをショートカットキー(Ctrl + L)から複製してLockするエディタ拡張です
 
 ## Demo
 
