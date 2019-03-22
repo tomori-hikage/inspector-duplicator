@@ -22,6 +22,9 @@ namespace SIN.Editor
                 return;
             }
 
+            var lockInspectorParameter = LockInspectorParameter.instance;
+            lockInspectorParameter.WindowList.RemoveAll(window => window == null);
+
             var inspectorType = Type.GetType("UnityEditor.InspectorWindow,UnityEditor");
             var inspectorWindow = ScriptableObject.CreateInstance(inspectorType) as EditorWindow;
             inspectorWindow.ShowUtility();
@@ -29,7 +32,6 @@ namespace SIN.Editor
             var isLockedPropertyInfo = inspectorType.GetProperty("isLocked", BindingFlags.Instance | BindingFlags.Public);
             isLockedPropertyInfo.GetSetMethod().Invoke(inspectorWindow, new object[] { true });
 
-            var lockInspectorParameter = LockInspectorParameter.instance;
             if (lockInspectorParameter.WindowList.Any())
             {
                 var lastIndex = lockInspectorParameter.WindowList.Count - 1;
@@ -54,6 +56,11 @@ namespace SIN.Editor
                 }
 
                 inspectorWindow.position = new Rect(positionX, positionY, position.width, position.height);
+            }
+            else
+            {
+                var mainWindowRect = GetMainWindowRect();
+                inspectorWindow.position = new Rect((mainWindowRect.width - inspectorWindow.position.width) * 0.5f, (mainWindowRect.height - inspectorWindow.position.height) * 0.5f, inspectorWindow.position.width, inspectorWindow.position.height);
             }
 
             lockInspectorParameter.WindowList.Add(inspectorWindow);
