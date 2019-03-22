@@ -7,7 +7,7 @@
 
 ## Description
 
-LockInspectorは[LockInspector](https://gist.github.com/tsubaki/611043a80fef1e1023249ece58e2ae0a#file-lockinspector-cs)に機能を追加したエディタ拡張です
+LockInspectorは[tsubaki/LockInspector](https://gist.github.com/tsubaki/611043a80fef1e1023249ece58e2ae0a#file-lockinspector-cs)に機能を追加したエディタ拡張です
 
 ## Demo
 
@@ -19,6 +19,6 @@ LockInspectorは[LockInspector](https://gist.github.com/tsubaki/611043a80fef1e10
 
 ## Use License
 
-LockInspectorは[LockInspector](https://gist.github.com/tsubaki/611043a80fef1e1023249ece58e2ae0a#file-lockinspector-cs)を参考に作成しています
+LockInspectorは[tsubaki/LockInspector](https://gist.github.com/tsubaki/611043a80fef1e1023249ece58e2ae0a#file-lockinspector-cs)を参考に作成しています
 
-[LockInspector MIT License Copyright (c) 2016 yamamura tatsuhiko](https://gist.github.com/tsubaki/611043a80fef1e1023249ece58e2ae0a#file-lockinspector-cs)
+[tsubaki/LockInspector MIT License Copyright (c) 2016 yamamura tatsuhiko](https://gist.github.com/tsubaki/611043a80fef1e1023249ece58e2ae0a#file-lockinspector-cs)
