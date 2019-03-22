@@ -12,6 +12,7 @@ LockInspectorはInspectorビューをショートカットキー(Ctrl + L)から
 ## Demo
 
 ![Demo1](https://github.com/tomori-hikage/LockInspector/blob/readme_images/Images/gif1.gif)
+![Demo2](https://github.com/tomori-hikage/LockInspector/blob/readme_images/Images/gif2.gif)
 
 ## Install
 
