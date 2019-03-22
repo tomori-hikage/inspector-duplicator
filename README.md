@@ -7,7 +7,7 @@
 
 ## Description
 
-LockInspectorは[tsubaki/LockInspector](https://gist.github.com/tsubaki/611043a80fef1e1023249ece58e2ae0a#file-lockinspector-cs)に機能を追加したエディタ拡張です
+LockInspectorはInspectorビューを複製してLockするエディタ拡張です
 
 ## Demo
 
