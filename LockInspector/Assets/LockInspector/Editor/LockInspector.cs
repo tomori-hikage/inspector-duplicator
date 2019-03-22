@@ -60,7 +60,8 @@ namespace SIN.Editor
             else
             {
                 var mainWindowRect = GetMainWindowRect();
-                inspectorWindow.position = new Rect((mainWindowRect.width - inspectorWindow.position.width) * 0.5f, (mainWindowRect.height - inspectorWindow.position.height) * 0.5f, inspectorWindow.position.width, inspectorWindow.position.height);
+                var position = inspectorWindow.position;
+                inspectorWindow.position = new Rect((mainWindowRect.width - position.width) * 0.5f, (mainWindowRect.height - position.height) * 0.5f, position.width, position.height);
             }
 
             lockInspectorParameter.WindowList.Add(inspectorWindow);
