@@ -7,14 +7,14 @@ using System.Reflection;
 
 namespace SIN.Editor
 {
-    public class LockInspectorParameter : ScriptableSingleton<LockInspectorParameter>
+    public class InspectorDuplicatorParameter : ScriptableSingleton<InspectorDuplicatorParameter>
     {
         public List<EditorWindow> WindowList = new List<EditorWindow>();
     }
 
-    public static class LockInspector
+    public static class InspectorDuplicator
     {
-        [MenuItem("Window/LockInspector/Tab %l")]
+        [MenuItem("Window/InspectorDuplicator/Tab %l")]
         private static void ShowInspectorWindow()
         {
             if (Selection.activeObject == null)
@@ -22,8 +22,8 @@ namespace SIN.Editor
                 return;
             }
 
-            var lockInspectorParameter = LockInspectorParameter.instance;
-            lockInspectorParameter.WindowList.RemoveAll(window => window == null);
+            var inspectorDuplicatorParameter = InspectorDuplicatorParameter.instance;
+            inspectorDuplicatorParameter.WindowList.RemoveAll(window => window == null);
 
             var inspectorType = Type.GetType("UnityEditor.InspectorWindow,UnityEditor");
             var inspectorWindow = ScriptableObject.CreateInstance(inspectorType) as EditorWindow;
@@ -32,10 +32,10 @@ namespace SIN.Editor
             var isLockedPropertyInfo = inspectorType.GetProperty("isLocked", BindingFlags.Instance | BindingFlags.Public);
             isLockedPropertyInfo.GetSetMethod().Invoke(inspectorWindow, new object[] { true });
 
-            if (lockInspectorParameter.WindowList.Any())
+            if (inspectorDuplicatorParameter.WindowList.Any())
             {
-                var lastIndex = lockInspectorParameter.WindowList.Count - 1;
-                var lastWindow = lockInspectorParameter.WindowList[lastIndex];
+                var lastIndex = inspectorDuplicatorParameter.WindowList.Count - 1;
+                var lastWindow = inspectorDuplicatorParameter.WindowList[lastIndex];
                 var position = lastWindow.position;
 
                 // ウィンドウが画面外に行く場合は階段状に表示する
@@ -64,30 +64,30 @@ namespace SIN.Editor
                 inspectorWindow.position = new Rect((mainWindowRect.width - position.width) * 0.5f, (mainWindowRect.height - position.height) * 0.5f, position.width, position.height);
             }
 
-            lockInspectorParameter.WindowList.Add(inspectorWindow);
+            inspectorDuplicatorParameter.WindowList.Add(inspectorWindow);
             EditorWindow.focusedWindow.Focus();
         }
 
-        [MenuItem("Window/LockInspector/Close Last Tab %#l")]
+        [MenuItem("Window/InspectorDuplicator/Close Last Tab %#l")]
         private static void CloseLastWindow()
         {
-            var lockInspectorParameter = LockInspectorParameter.instance;
-            if (!lockInspectorParameter.WindowList.Any())
+            var inspectorDuplicatorParameter = InspectorDuplicatorParameter.instance;
+            if (!inspectorDuplicatorParameter.WindowList.Any())
             {
                 return;
             }
 
-            var lastIndex = lockInspectorParameter.WindowList.Count - 1;
-            var lastWindow = lockInspectorParameter.WindowList[lastIndex];
+            var lastIndex = inspectorDuplicatorParameter.WindowList.Count - 1;
+            var lastWindow = inspectorDuplicatorParameter.WindowList[lastIndex];
             lastWindow.Close();
-            lockInspectorParameter.WindowList.RemoveAt(lastIndex);
+            inspectorDuplicatorParameter.WindowList.RemoveAt(lastIndex);
         }
 
-        [MenuItem("Window/LockInspector/Close All Window %&l")]
+        [MenuItem("Window/InspectorDuplicator/Close All Window %&l")]
         private static void CloseAllWindows()
         {
-            var lockInspectorParameter = LockInspectorParameter.instance;
-            foreach (var window in lockInspectorParameter.WindowList)
+            var inspectorDuplicatorParameter = InspectorDuplicatorParameter.instance;
+            foreach (var window in inspectorDuplicatorParameter.WindowList)
             {
                 if (window != null)
                 {
@@ -95,7 +95,7 @@ namespace SIN.Editor
                 }
             }
 
-            lockInspectorParameter.WindowList.Clear();
+            inspectorDuplicatorParameter.WindowList.Clear();
         }
 
         private static Rect GetMainWindowRect()
